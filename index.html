@@ -1,0 +1,253 @@
+<html>
+  <head>
+    <title>Package Schedule</title>
+  </head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+  <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="stylesheet/doorman.css">
+  <link rel="stylesheet" type="text/css" href="stylesheet/Xeditable.css">
+  <link rel="stylesheet" type="text/css" href="stylesheet/schedule.css">
+  <!-- <link rel="stylesheet" type="text/css" href="stylesheet/pickdate.classic.css"> -->
+  <link rel="stylesheet" type="text/css" href="stylesheet/pickdate.default.css">
+  <!-- <link rel="stylesheet" type="text/css" href="stylesheet/pickdate.classic.date.css"> -->
+  <link rel="stylesheet" type="text/css" href="stylesheet/pickdate.default.date.css">
+
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.min.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="javascript/Xeditable.min.js"></script>
+  <script type="text/javascript" src="javascript/legacy.js"></script>
+  <script type="text/javascript" src="javascript/picker.js"></script>
+  <script type="text/javascript" src="javascript/picker.date.js"></script>
+  <script type="text/javascript" src="javascript/namespace.js"></script>
+  <script type="text/javascript" src="javascript/initialize.js"></script>
+  <script type="text/javascript" src="javascript/schedule/data.js"></script>
+  <script type="text/javascript" src="javascript/schedule/model.js"></script>
+  <script type="text/javascript" src="javascript/schedule/views.js"></script>
+  <script type="text/javascript" src="javascript/schedule/controller.js"></script>
+  <body>
+    <br><br><br>
+
+    <div class="container">
+
+      <!-- Logos-->
+      <div class="row">
+        <div class= "col-md-6 col-md-offset-3">
+          <div class="col-md-6">
+            <img class="img-responsive img-partner push-right" src="images/doorman.png">
+          </div>
+
+          <div class="col-md-6">
+            <img class="img-responsive img-partner push-right" src="images/popbasic.png">
+          </div>
+        </div>
+      </div>
+      <!--/Logos-->
+
+      <hr>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3 squeeze schedule customer">
+
+          <!-- YIELD -->
+
+        </div>
+      </div>
+
+      <!--/Container-->
+    </div>
+
+
+    <!--Templates -->
+    <!--All Forms Template-->
+    <script type="text/x-handlebars-template" id="schedule-form">
+      <!--Form -->
+      <form class="form-horizontal">
+      <fieldset>
+      <div class="panel panel-default">
+        <div class="panel-heading"><center><h4>Schedule your package</h4></center></div>
+        <div class="panel-body">
+          <!--Name-->
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Name:</label>
+            <div class="col-lg-9"><input type="text" class="form-control" placeholder="John Doe"></div>
+          </div>
+          <!--/Name-->
+
+          <!--Email-->
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Email:</label>
+            <div class="col-lg-9"><input type="text" class="form-control" placeholder="john@doe.com"></div>
+          </div>
+          <!--/Name-->
+
+          <!--Address-->
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Address:</label>
+            <div class="col-lg-9"><input type="text" class="form-control" placeholder="123 Main Street"></div>
+          </div>
+          <!--/Address-->
+
+          <!--City-->
+          <div class="form-group">
+            <label class="col-lg-3 control-label">City:</label>
+            <div class="col-lg-9"><input type="text" class="form-control"  value="San Francisco"></div>
+          </div>
+          <!--/City-->
+
+          <!--State-->
+          <div class="form-group">
+            <label class="col-lg-3 control-label">State:</label>
+            <div class="col-lg-9"><input type="text" class="form-control" value="CA"></div>
+          </div>
+          <!--/State-->
+
+          <!--Zipcode-->
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Zipcode:</label>
+            <div class="col-lg-9"><input type="text" class="form-control" placeholder="99999"></div>
+          </div>
+          <!--/Zipcode-->
+
+          <hr>
+          <!--Date-->
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Date:</label>
+            <div class="col-lg-9"><input type="text" class="form-control datepicker"></div>
+          </div>
+          <!--/Date-->
+
+          <!--Time-->
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Time</label>
+              <div class="col-lg-9">
+                <select class="form-control" id="select">
+                  <option>6:00 - 8:00 PM</option>
+                  <option>8:00 - 10:00 PM</option>
+                  <option>10:00 - 12:00 PM</option>
+                </select>
+              </div>
+          </div>
+          <!--/Time-->
+        </div>
+      </div>
+      </form>
+      <button class="btn btn-md btn-success success-shadow btn-block">SCHEDULE NOW</button>
+      </fieldset>
+      <!--/Form-->
+    </script>
+    <!--/All Forms Template-->
+
+    <!--User details Template-->
+    <script type="text/x-handlebars-template" id="customer-details">
+      <div class="panel panel-default">
+        <div class="panel-heading"><center><h4>Hello,<span class="text-success">  {{name}} !</span></h4></center></div>
+        <div class="panel-body">
+          <p><center>Please make sure we have right information.</center></p> <hr>
+          <div class="row">
+            <div class="col-md-6">
+              <p><span id="customer-name">{{name}}</span></p>
+              <p><span id="customer-email">{{email}}</span></p>
+              <p><span id="customer-address">{{address}}</span></p>
+              <p>
+                <span id="customer-city">{{city}}</span>,
+                <span id="customer-state">{{state}}</span> -
+                <span id="customer-zipcode"> {{zipcode}}</span>
+              <p>
+            </div>
+            <div class="col-md-6 packages">
+
+            </div>
+          </div>
+          <div class="schedule-form"></div>
+        </div>
+      </div>
+    </script>
+    <!--/User details Template-->
+
+    <!-- Schedule Form Template -->
+    <script type="text/x-handlebars-template" id="date-time-form">
+      <hr>
+        <!--Date-->
+      <center><p class="text-success"> Please schedule your package </p></center>
+      <form class="form-horizontal">
+        <div class="form-group">
+          <label class="col-lg-3 control-label"><!--<i class="fa fa-calendar fa-2x">-->Date: </i></label>
+          <div class="col-lg-9"><input type="text" class="form-control datepicker"></div>
+        </div>
+        <!--/Date-->
+
+        <!--Time-->
+        <div class="form-group">
+          <label class="col-lg-3 control-label"><!--<i class="fa fa-clock-o fa-2x"></i>-->Time: </label>
+            <div class="col-lg-9">
+              <select class="form-control" id="select">
+                <option>6:00 PM - 8:00 PM</option>
+                <option>8:00 PM - 10:00 PM</option>
+                <option>10:00 PM - 12:00 PM</option>
+              </select>
+            </div>
+        </div>
+        <button class="btn btn-md btn-success success-shadow btn-block">SCHEDULE NOW</button>
+      </form>
+    </script>
+        <!--/Time-->
+    <!--/ Schedule Form Template-->
+
+    <!-- Scheduled Template -->
+    <script type="text/x-handlebars-template" id="scheduled-date-time">
+      <div class="schedule-calander">
+      <hr>
+        <center><p class="text-success">You have scheduled to receive package on</p></center>
+        <div class="col-md-6">
+          <time datetime="2014-09-20" class="icon">
+            <em>Saturday</em>
+            <strong>September</strong>
+            <span>20</span>
+          </time>
+        </div>
+
+        <div class="col-md-6">
+          <center>
+            <h3> {{time}}</h3>
+          </strong>
+          <hr>
+          <button class="btn btn-sm btn-info info-shadow btn-reschedule">RESCHEDULE</button>
+        </div>
+      </div>
+    </script>
+    <!-- /Scheduled Template -->
+
+    <!--Packages template-->
+    <script type="text/x-handlebars-template" id="package-template">
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+      <div class="panel panel-success">
+        <div class="panel-heading" role="tab" id="packages-panel">
+          <h4 class="panel-title">
+            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              <center>View Packages</center>
+            </a>
+          </h4>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="packages-panel">
+          <div class="panel-body">
+            <!---PACKAGES HERE -->
+            <div class="list-group">
+              <a href="#" class="list-group-item">
+                <strong class="text-success">Red Pants</strong>
+                <p>From Amazon</p>
+              </a>
+              <a href="#" class="list-group-item">
+                <strong class="text-success">Macbook Pro</strong>
+                <p>From Apple</p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/Packages template-->
+    </script>
+  </body>
+</html>
