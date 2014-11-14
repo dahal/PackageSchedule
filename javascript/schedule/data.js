@@ -8,14 +8,14 @@
 // }
 
 // Conditions ****************************************************
-  // If we have customer on database
-  // If we do now have schedule on database
+//   If we have customer on database
+//   If we do now have schedule on database
 
   // SCHEDULE = {
   //   "status": 200,
   //   "user": {
-  //     "name": "John Doe",
-  //     "email": "john@doe.com",
+  //     "name": "Puru Dahal",
+  //     "email": "puru@droorman.it",
   //     "address": "123 Main Street",
   //     "city": "San Francisco",
   //     "state": "CA",
@@ -42,8 +42,8 @@
 SCHEDULE = {
   "status": 200,
   "user": {
-    "name": "John Doe",
-    "email": "john@doe.com",
+    "name": "Puru Dahal",
+    "email": "puru@droorman.it",
     "address": "123 Main Street",
     "city": "San Francisco",
     "state": "CA",
